@@ -1,4 +1,5 @@
 # computer_vision--hand_gesture_recognition
+
 This project aims to create a more human-like interface by which an operator will intuitively interact with edge devices.   The MVP will use nine ASL-based hand gestures and computer vision to control a python program. 
 
 ## Problem Statement:
