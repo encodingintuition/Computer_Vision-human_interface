@@ -1,40 +1,43 @@
-# computer_vision--hand_gesture_recognition
+# Computer Vision - Human-like Interface 
+<hr/>
+
+# Statement:
+
 This project aims to create a more human-like interface by which an operator will intuitively interact with edge devices.   The MVP will use nine ASL-based hand gestures and computer vision to control a python program. 
 
-## Problem Statement:
+**Goals:**
+1. Train a convolutional neural network to identify particular ASL-based hand gestures (9 classes).
+2. Create code that will trigger actions within an external program when above classes are recodnized.
 
-To create a more human interface to interact with a computer system.
-- To train a convolutional neural network to identify particular hand gestures.
-- To have these hand gestures trigger actions within another python application
+# Executive Summary:
 
-## Executive Summary:
+**Data**
 
-### Data 
+-  The model is trained on nine distinct hand gestures based on the ASL alphabet.  
+- The collected data is from an open-source online archive, webcam screen shoot, and cameraphone images of 15 volunteers.
+- There was a conscious effort to ensure that samples represent individuals of various ethnic backgrounds.   
+- We resized all file sizes and proportions to 412 x 412. 
+- Roboflow.com was utilized for Data augmentation to increase the training data set. 
 
-    Nine classes of hands gestures were choosen based on the ASL alphabet to be used as proof of concept.  Each gesture would be used to trigger a different action within a separate program.
-    
-    Data was collected from opensource online archive, webcam screen shoot, and cameraphone images of ~ 15 volunteers.
-    
-    The files sizes and proportions that were inconsistent were resized to 412 x 412. 
-    Data augmentaion was performed to grow the quantity of data through roboflow.com.  Augmentation techniques that were utilized: conversion into Black and white, screw, rotation, brightness, and hue.
+**Model**
 
-### Model 
-
-    The model Tiny YoloV4 on Darknet framework was choosen for the CNN model of choice.  The Tiny YoloV4 model has a weight set of only ~23mb but still returned a 40.2 % AP50 score on MS COCO Object Detection dataset.   
+- The CNN model of choice is Tiny YoloV4 on Darknet framework.  Tiny YoloV4 model has a weight-set of only 23mb but still returned a 40.2 % AP50 score on MS COCO Object Detection dataset.   
    
-    The model was trained and tuned on Google Colab using the architecture file (cfg) achiving a model with 92.96 mAP. 
+- The model was trained and tuned on Google Colab using the architecture file (cfg) achiving a model with 92.96 mAP. 
     
 
-### Detection
+**Detection**
 
-    The architecture and weigths files were placed into a OpenCV script, utilizing openCV DNN libaries, to run realtime detection of the gestures through the computers webcam. (detect.ipynb) 
+The architecture and the weight file were placed into an OpenCV script, utilizing OpenCV DNN libraries to run real-time detection of the gestures through the computer's webcam. (detect.ipynb) 
     
-### Linked python program
+**Linked python program**
     
-    The python program turtle_test3.py is a python script running events based from turtle.py libaries.  Move-2.txt is a text file that is written to when a gesture is detected.  The turtle_test3.py program is constantly reading this file, waiting for an update which will cause it to execute a function that will change the color and draw a new geometric.
+The python program turtle_test3.py is a python script running events based on turtle.py libraries.  The detect.ipynb writes to the file Move-2.txt  when a gesture is detected.  The turtle_test3.py program is constantly reading this file, waiting for an update that will cause it to execute a function; change the turtle color and draw a new geometric.
    - [turtle.py](https://docs.python.org/3/library/turtle.html)
 
     
+
+<br>
 
 #### Metrics of tiny YoloV4 model 
 | class          | Average Precision    | TP    |  FP |
@@ -53,7 +56,8 @@ To create a more human interface to interact with a computer system.
 | :------------- | :----------: | :----------: |-----------: |
 |  92.96 | 0.91  | 0.87   | 0.89|
 
-    Screen shot of a hand guesture being reconized by model
+<br><br>
+Hand gesture recognized by model.
 <img src="./code/images/magic.jpg"
      alt="magic descovery"
      style="float: left; margin-right: 10px;" />
@@ -62,11 +66,12 @@ To create a more human interface to interact with a computer system.
      
      
 
-    Screen shot of shapes created by hand guestures trigguring linked turtle functions 
+<br>
 
 <img src="./code/images/turtle_shapes.jpg"
      alt="turtle images"
      style="float: left; margin-right: 10px;" />
+     This image is a screen capture of a drawing created from the computer vision model within the OpenCV code. 
 
 ## Contents
 
@@ -91,42 +96,27 @@ To create a more human interface to interact with a computer system.
 
 ## Conclusion
 
-In conclusion the Tiny YoloV4 model is successful in being able to identify particular hand gestures after being trained on custom data.  With the low computational cost of running a tiny yolov4 it is able to run on a CPU in real time.  It has also been proven that the detection of particualar hand gestures is able to trigger actions within another program.  
+In conclusion, the Tiny YoloV4 model is successful in being able to identify particular hand gestures after being trained on custom data. With the low computational cost of running a Tiny Yolov4 it can run on a CPU in real-time. The detection of particular hand gestures was able to trigger actions within another program.
 
 
 ## Areas of Future Studies
 
-We are looking into using this project for education and introduction into computer vision to further democratize computer vision, creating better scripts & tools for managing data workflows, and collecting data with more variety of hand sizes.  (because most smartphone cameras were used to collect the data, the model expects the hand to be large in comparison to frame size.)
-We are looking into the work of Mediapipe (that is trained on 30K hands), and other gesture models that incorporate larger movements of the body.
+To grow this model, we are looking into creating better scripts & tools for managing data workflows and collect data with more variety of hand sizes.  An example of this is a smartphone app that allows seamless labeling and image augmentation within your photo library. We are also looking into Mediapipe and other gesture models that incorporate more significant movements of the body.
 
 ## Areas of further philosophical thought
 
-We will research concepts of what will the future of computer vision hold. I can see a time when computers will intuite human gestures by passively collecting data from watching us, just as the search engine customizes and intuites our needs based on past searches we have done.  Cameras linked to computer vision systems will be ubiquitous in the future. A computer network will understand your mood & intentions based on gentle shifts in your body language as well, if not better, than your intimate partner or the family dog.  Will this data be centralized on cloud serves or decentralized on personal home servers?  What rules will be in place to keep this data private so that it is not leveraged by employers, goverment, corperate espionage, and advertising companies.    
+We will research concepts of what will the future of computer vision hold. I can see a time when computers will intuit human gestures by passively collecting data from watching us, just as the search engine customizes and intuits our needs based on past searches we have done.  Cameras linked to computer vision systems will be ubiquitous in the future. A computer network will better understand your mood & intentions based on gentle shifts in your body language than your intimate partner or the family dog.  Will this data be centralized on cloud serves or decentralized on personal home servers?  What rules will be in place to keep this data private so that employers nor advertising companies do not leverage this knowledge?
 
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
-```
-
----
 
 --- 
+<br><br><br><br><br><br><br>
+<br><br><br>
 
 ---
 
 # Community notes
 - Below are notes from the yolo community that are most helpful when creating a model. 
-- One of the greatest strengths of the yolo model is the Opensource community that supports it.
+- One of the greatest strengths of the yolo model is the Open-source community that supports it.
 
 #### About YoloV4 tiny 
 
