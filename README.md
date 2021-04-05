@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 # Computer Vision - Human-like Interface 
 <hr/>
+=======
+# computer_vision--hand_gesture_recognition
+
+This project aims to create a more human-like interface by which an operator will intuitively interact with edge devices.   The MVP will use nine ASL-based hand gestures and computer vision to control a python program. 
+>>>>>>> d729aaad4c224c5116e21285735723de2e15aab9
 
 # Statement:
 
